@@ -24,7 +24,7 @@ CREATE TABLE LIBRO (
     titulo VARCHAR(200),
     portada TEXT,
     sinopsis VARCHAR(200),
-    fec_publicación DATE,
+    fec_publicacion DATE,
     url_compra TEXT
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE GRUPO (
     id_grupo CHAR(4) PRIMARY KEY,
     nom_grupo VARCHAR(100),
     clave_grupo VARCHAR(100),
-    descripción sinopsis VARCHAR(200),
+    descripcion VARCHAR(200),
     id_administrador VARCHAR(20),
     FOREIGN KEY (id_administrador) REFERENCES USUARIO(nom_usu)
         ON DELETE SET NULL ON UPDATE CASCADE
@@ -60,7 +60,8 @@ CREATE TABLE GRUPO (
 
 CREATE TABLE PERTENECE (
     nom_usu VARCHAR(20),
-    id_grupo INT,
+    /* id_grupo INT, */
+    id_grupo CHAR(4),
     fec_union DATE,
     PRIMARY KEY (nom_usu, id_grupo),
     FOREIGN KEY (nom_usu) REFERENCES USUARIO(nom_usu)
@@ -70,7 +71,8 @@ CREATE TABLE PERTENECE (
 );
 
 CREATE TABLE CONTIENE (
-    id_grupo INT,
+    /* id_grupo INT, */
+    id_grupo CHAR(4),
     id_libro INT,
     fecha DATE,
     PRIMARY KEY (id_grupo, id_libro),

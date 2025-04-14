@@ -27,6 +27,7 @@ services:
       MYSQL_PASSWORD: libreria123
     volumes:
       - ./datos/:/var/lib/mysql
+      - ./script/:/docker-entrypoint-initdb.d
     networks:
       - red1
 
